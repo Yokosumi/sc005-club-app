@@ -18,7 +18,8 @@ export const PageWelcome = () => {
 					return (
 						<li key={member.id}>
 							<p>
-								{member.name} (ID = {member.id})
+								{member.name} (ID = {member.id}, age ={" "}
+								{member.age})
 							</p>
 						</li>
 					);

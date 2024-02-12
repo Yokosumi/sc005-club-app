@@ -37,7 +37,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 						)})`
 					);
 					setErrorMessage(
-						"At least one of the memberss could not be imported, please write to admin@dkjfdkfcompany.com"
+						"At least one of the members could not be imported, please write to admin@dkjfdkfcompany.com"
 					);
 				}
 			}
