@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-import { IMember, MemberSchema } from "../interfaces";
+import { Member, MemberSchema } from "../interfaces";
 import axios from "axios";
 
 interface IAppContext {
 	message: string;
-	members: IMember[];
+	members: Member[];
 	errorMessage: string;
 }
 
@@ -17,7 +17,7 @@ const backendUrl = "http://localhost:3311";
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
-	const [members, setMembers] = useState<IMember[]>([]);
+	const [members, setMembers] = useState<Member[]>([]);
 	const [errorMessage, setErrorMessage] = useState("");
 
 	const message = "Welcome to this site.";
@@ -25,7 +25,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	useEffect(() => {
 		(async () => {
 			const response = await axios.get(`${backendUrl}/members`);
-			const _members: IMember[] = [];
+			const _members: Member[] = [];
 			for (const _member of response.data) {
 				const parseResult = MemberSchema.safeParse(_member);
 				if (parseResult.success) {

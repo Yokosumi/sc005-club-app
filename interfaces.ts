@@ -5,7 +5,4 @@ export const MemberSchema = z.object({
 	name: z.string(),
 });
 
-export interface IMember {
-	id: number;
-	name: string;
-}
+export type Member = z.infer<typeof MemberSchema>;
